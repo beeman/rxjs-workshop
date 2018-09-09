@@ -1,6 +1,4 @@
-import { debounceTime, distinctUntilChanged, map, switchMap, tap } from 'rxjs/operators';
-
-export const lesson = {
+const introduction = {
   title: 'Text input',
   description: [
     `In this lesson we will use Observables to listen to changes on a text input, and use these to search an API.`,
@@ -8,7 +6,7 @@ export const lesson = {
   ],
 };
 
-export const activity1 = {
+const activity1 = {
   title: 'Activity 1: Read the text of an input',
   description: [],
   solution: `this.input1$.subscribe((event) => {
@@ -40,7 +38,7 @@ export const activity1 = {
 };
 
 
-export const activity2 = {
+const activity2 = {
   title: 'Activity 2: Transform the text of an input',
   description: [
     `In this activity we will transform the text of an input, from it's raw value to a query we can send to the API.`,
@@ -125,7 +123,7 @@ this.input2$query
 };
 
 
-export const activity3 = {
+const activity3 = {
   title: 'Activity 3: Use the text input to make an API request',
   description: [],
   solution: `this.input3$query = this.input3$.pipe(
@@ -196,4 +194,11 @@ this.input3$query.pipe(
       step: `You can also search for partial names, like <strong>united</strong> or <strong>island</strong>. Oh, and don't forget to check the flag of <strong>Nepal</strong> 😮 `,
     }
   ],
+};
+
+export const lesson5 = {
+  introduction,
+  activity1,
+  activity2,
+  activity3,
 };

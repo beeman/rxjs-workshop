@@ -1,11 +1,25 @@
 <div class="row">
   <div class="col-md-3">
     <div class="nav flex-column nav-pills mb-5" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-      <a class="nav-link" data-toggle="pill" role="tab"
-         *ngFor="let link of links; let i = index"
-         [routerLink]="link.url" routerLinkActive="active">
-        {{ i }}. {{link.label}}
-      </a>
+      <ng-container *ngFor="let link of links; let i = index">
+
+        <a class="nav-link" data-toggle="pill" role="tab"
+
+           [routerLink]="link.url" routerLinkActive="active">
+          {{link.label}}
+        </a>
+
+        <ul *ngIf="link.children.length" class="list-unstyled ml-5">
+          <li *ngFor="let child of link.children; let j = index">
+
+            <a class="nav-link" data-toggle="pill" role="tab"
+               [routerLink]="[link.url, child.url]" routerLinkActive="active">
+              {{child.label}}
+            </a>
+
+          </li>
+        </ul>
+      </ng-container>
     </div>
   </div>
   <div class="col-md-9">

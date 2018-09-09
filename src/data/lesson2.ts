@@ -1,4 +1,4 @@
-export const lesson = {
+const introduction = {
   title: 'Transform streams',
   description: [
     `In this demo all the buttons listen to the click event using the <code>fromEvent</code> Observable.`,
@@ -9,7 +9,7 @@ export const lesson = {
   ],
 };
 
-export const activity1 = {
+const activity1 = {
   title: 'Activity 1: Subscription only',
   description: [
     `Subscribe to the button clicks without transforming the stream. (Without using the <code>pipe()</code> method.)`
@@ -34,7 +34,7 @@ export const activity1 = {
   ],
 };
 
-export const activity2 = {
+const activity2 = {
   title: 'Activity 2: Throttle clicks with a delay',
   description: [
     `The <code>throttleTime</code> operator limits the number of events that get emitted in the specified time, emitting the latest value when specified duration has passed.`
@@ -66,7 +66,7 @@ export const activity2 = {
   ],
 };
 
-export const activity3 = {
+const activity3 = {
   title: 'Activity 3: Debounce the clicks with a delay.',
   description: [
     `The <code>debounceTime</code> operator sets the specified time it waits between events before emitting the event.`
@@ -95,7 +95,7 @@ export const activity3 = {
   ],
 };
 
-export const activity4 = {
+const activity4 = {
   title: 'Activity 4: Modify the result of the event.',
   description: [
     `The <code>map</code> operator can modify the result of the stream.`,
@@ -134,7 +134,7 @@ export const activity4 = {
 };
 
 
-export const activity5 = {
+const activity5 = {
   title: 'Exercise 1: Skip the first number of clicks.',
   description: [
     `The <code>skip</code> operator starts emitting after the specified amount.`,
@@ -162,7 +162,7 @@ export const activity5 = {
   ],
 };
 
-export const activity6 = {
+const activity6 = {
   title: 'Exercise 2: Stop counting after a number of clicks',
   description: [
     `The <code>takeUntil</code> operator limits the number of events that will be emitted.`,
@@ -229,4 +229,15 @@ this.button6$
 }`,
     },
   ],
+};
+
+
+export const lesson2 = {
+  introduction,
+  activity1,
+  activity2,
+  activity3,
+  activity4,
+  activity5,
+  activity6,
 };

@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 interface Link {
   label: string;
   url: string;
+  children?: Link[];
 }
 
 @Component({
