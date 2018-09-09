@@ -1,0 +1,33 @@
+<app-activity [title]="lesson.title"
+              [description]="lesson.description"
+              [showSolutionLink]="false"
+              [showContent]="false"
+              [showResult]="false"></app-activity>
+
+<app-activity [title]="activity1.title"
+              [description]="activity1.description"
+              [steps]="activity1.steps"
+              [solution]="activity1.solution"
+              [result]="result">
+
+
+  <!-- The button that initiates the request -->
+  <div class="my-3">
+    <button (click)="solution1()"
+            [disabled]="loading">Get Random Gif</button>
+  </div>
+
+  <!-- Display the result if we have one -->
+  <div *ngIf="result as result; else noresult">
+    <img [attr.src]="result.images['original']['url']"
+         alt="">
+  </div>
+
+  <!-- This template will be rendered when there is no result or when loading -->
+  <ng-template #noresult>
+    <app-loader [show]="loading"></app-loader>
+    <div class="text-center"
+         *ngIf="!loading1 && !result"> No result </div>
+  </ng-template>
+
+</app-activity>

@@ -1,0 +1,45 @@
+<div class="card mb-5">
+  <div class="card-header">
+    <div class="float-right" *ngIf="showSolutionLink">
+      <button (click)="showSolution = !showSolution" class="btn btn-link text-dark">
+        <i class="fa fa-question"></i>
+      </button>
+    </div>
+    <div class="my-2">
+    {{ title }}
+    </div>
+  </div>
+  <div class="card-body" *ngIf="description.length">
+    <div *ngFor="let item of description">
+      <p class="my-3" [innerHTML]="item"></p>
+    </div>
+  </div>
+  <div *ngIf="showSolution">
+    <div class="card-body">
+      <div class="alert alert-danger">
+        Solution
+      </div>
+      <app-code>{{ solution }}</app-code>
+    </div>
+  </div>
+
+  <div class="card-body" *ngIf="steps || showContent">
+    <ng-container *ngIf="steps">
+      <app-code-steps [steps]="steps"></app-code-steps>
+    </ng-container>
+
+    <ng-container *ngIf="showContent">
+      <div class="mb-4 mt-5">
+        <ng-content></ng-content>
+      </div>
+    </ng-container>
+  </div>
+
+  <ng-container *ngIf="showResult">
+    <div class="card-header">Result</div>
+    <div class="card-body">
+      <pre *ngIf="result" class="mb-0">{{ result | json }} </pre>
+    </div>
+  </ng-container>
+
+</div>

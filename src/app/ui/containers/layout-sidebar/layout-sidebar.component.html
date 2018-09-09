@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-md-3">
+    <div class="nav flex-column nav-pills mb-5" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+      <a class="nav-link" data-toggle="pill" role="tab"
+         *ngFor="let link of links; let i = index"
+         [routerLink]="link.url" routerLinkActive="active">
+        {{ i }}. {{link.label}}
+      </a>
+    </div>
+  </div>
+  <div class="col-md-9">
+    <div class="tab-content">
+      <div class="tab-pane fade show active">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

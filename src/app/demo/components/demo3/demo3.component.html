@@ -1,0 +1,14 @@
+<app-activity [title]="lesson.title"
+              [description]="lesson.description"
+              [showSolutionLink]="false"
+              [showContent]="false"
+              [showResult]="false"></app-activity>
+
+<app-activity [title]="activity1.title"
+              [description]="activity1.description"
+              [steps]="activity1.steps"
+              [solution]="activity1.solution"
+              [showResult]="false">
+</app-activity>
+
+<app-canvas #canvas></app-canvas>

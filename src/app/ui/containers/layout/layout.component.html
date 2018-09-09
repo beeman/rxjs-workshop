@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand navbar-light bg-light">
+  <a class="navbar-brand" routerLink="/">
+    <img [src]="logo" width="50" height="50" alt="" class="mx-3">
+    {{ title }}
+  </a>
+  <div class="collapse navbar-collapse">
+    <!--<ul class="navbar-nav">-->
+    <!--<li class="nav-item" *ngFor="let item of items" routerLinkActive="active">-->
+    <!--<a class="nav-link" [routerLink]="item.url">-->
+    <!--{{ item.label }}-->
+    <!--</a>-->
+    <!--</li>-->
+    <!--</ul>-->
+    <ul class="navbar-nav pull-right">
+      <li class="nav-text">
+
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="container my-5 pb-5">
+  <router-outlet></router-outlet>
+</div>
+<nav class="navbar  navbar-expand navbar-light bg-light py-5">
+  <div class="navbar-text m-auto text-white">
+    RxJS: like a boss - NG Colombia 2018 🇨🇴 - by beeman 🐝
+  </div>
+</nav>
+
