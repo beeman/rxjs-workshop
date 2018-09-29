@@ -23,6 +23,11 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
+              {
+                "glob": "**/*",
+                "input": "./node_modules/monaco-editor/min/vs",
+                "output": "libs/vs"
+              },
               "src/favicon.ico",
               "src/assets"
             ],
@@ -80,6 +85,11 @@
             ],
             "scripts": [],
             "assets": [
+              {
+                "glob": "**/*",
+                "input": "./node_modules/monaco-editor/min/vs",
+                "output": "libs/vs"
+              },
               "src/favicon.ico",
               "src/assets"
             ]
@@ -127,5 +137,20 @@
       }
     }
   },
-  "defaultProject": "rxjs-workshop-demos"
+  "defaultProject": "rxjs-workshop-demos",
+  "schematics": {
+    "@schematics/angular": {
+      "module": {
+        "spec": false
+      },
+      "component": {
+        "spec": false,
+        "inlineTemplate": true,
+        "inlineStyle": true
+      },
+      "service": {
+        "spec": false
+      }
+    }
+  }
 }

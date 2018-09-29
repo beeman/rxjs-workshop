@@ -1,10 +1,5 @@
 import { Component, Input } from '@angular/core';
-
-interface Step {
-  step: string;
-  code: string;
-  lang?: string;
-}
+import { Step } from '../../../sdk/models';
 
 @Component({
   selector: 'app-code-steps',

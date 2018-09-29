@@ -9,6 +9,8 @@ import 'prismjs/components/prism-typescript';
 import 'prismjs/components/prism-scss';
 import 'prismjs/components/prism-markup';
 
+import { UiFormModule } from './form/ui-form.module';
+
 import { ActivityComponent } from './components/activity/activity.component';
 import { ButtonComponent } from './components/button/button.component';
 import { CardComponent } from './components/card/card.component';
@@ -27,6 +29,7 @@ import { CanvasComponent } from './components/canvas/canvas.component';
     CommonModule,
     PrismModule,
     RouterModule,
+    UiFormModule,
   ],
   declarations: [
     ActivityComponent,
@@ -43,6 +46,7 @@ import { CanvasComponent } from './components/canvas/canvas.component';
     ResultComponent,
   ],
   exports: [
+    UiFormModule,
     ActivityComponent,
     ButtonComponent,
     CanvasComponent,
