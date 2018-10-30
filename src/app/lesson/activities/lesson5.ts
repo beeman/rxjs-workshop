@@ -1,4 +1,5 @@
 const introduction = {
+  id: 'introduction',
   title: 'Text input',
   description: [
     `In this lesson we will use Observables to listen to changes on a text input, and use these to search an API.`,
@@ -7,6 +8,7 @@ const introduction = {
 };
 
 const activity1 = {
+  id: 'activity1',
   title: 'Activity 1: Read the text of an input',
   description: [],
   solution: `this.input1$.subscribe((event) => {
@@ -39,6 +41,7 @@ const activity1 = {
 
 
 const activity2 = {
+  id: 'activity2',
   title: 'Activity 2: Transform the text of an input',
   description: [
     `In this activity we will transform the text of an input, from it's raw value to a query we can send to the API.`,
@@ -124,6 +127,7 @@ this.input2$query
 
 
 const activity3 = {
+  id: 'activity3',
   title: 'Activity 3: Use the text input to make an API request',
   description: [],
   solution: `this.input3$query = this.input3$.pipe(
@@ -196,9 +200,9 @@ this.input3$query.pipe(
   ],
 };
 
-export const lesson5 = {
+export const lesson5 = [
   introduction,
   activity1,
   activity2,
   activity3,
-};
+];

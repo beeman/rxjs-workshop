@@ -1,16 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AppSharedModule } from '../../app-shared.module';
+import { AppSharedModule } from '../../../app-shared.module';
 
-import { Lesson2introductionComponent } from './activities/lesson2introduction.component';
-import { Lesson2activity1Component } from './activities/lesson2activity1.component';
-import { Lesson2activity2Component } from './activities/lesson2activity2.component';
-import { Lesson2activity3Component } from './activities/lesson2activity3.component';
-import { Lesson2activity4Component } from './activities/lesson2activity4.component';
-import { Lesson2activity5Component } from './activities/lesson2activity5.component';
-import { Lesson2activity6Component } from './activities/lesson2activity6.component';
-import { ActivityResolver } from '../resolvers/activity.resolver';
+import { Lesson2introductionComponent } from './lesson2introduction.component';
+import { Lesson2activity1Component } from './lesson2activity1.component';
+import { Lesson2activity2Component } from './lesson2activity2.component';
+import { Lesson2activity3Component } from './lesson2activity3.component';
+import { Lesson2activity4Component } from './lesson2activity4.component';
+import { Lesson2activity5Component } from './lesson2activity5.component';
+import { Lesson2activity6Component } from './lesson2activity6.component';
 
 const components = [
   Lesson2introductionComponent,

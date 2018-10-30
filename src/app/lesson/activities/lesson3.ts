@@ -1,4 +1,5 @@
 const introduction = {
+  id: 'introduction',
   title: 'Draw one a Canvas',
   description: [
     `In this demo we subscribe to the <code>mousemove</code>,  <code>mousedown</code> and  <code>mouseup</code> events.`,
@@ -7,6 +8,7 @@ const introduction = {
 };
 
 const activity1 = {
+  id: 'activity1',
   title: 'Activity 1: Draw with your mouse!',
   description: [],
   solution: `this.move$ = fromEvent(this.canvas.element, 'mousemove');
@@ -43,7 +45,7 @@ this.up$ = fromEvent(this.canvas.element, 'mouseup');`,
   ],
 };
 
-export const lesson3 = {
+export const lesson3 = [
   introduction,
   activity1,
-};
+];

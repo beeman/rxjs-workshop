@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { data } from '../../../../data';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   template: `
@@ -11,7 +10,7 @@ import { data } from '../../../../data';
   `,
 })
 export class Lesson2introductionComponent implements OnInit {
-  public readonly activity = data.lesson2.introduction;
+  @Input() public activity;
 
   ngOnInit() {}
 }

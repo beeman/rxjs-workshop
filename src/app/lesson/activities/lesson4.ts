@@ -1,4 +1,5 @@
 const introduction = {
+  id: 'introduction',
   title: 'Network Request',
   description: [
     `In this demo we make an http request and show a loading spinner until we receive the response.`,
@@ -6,6 +7,7 @@ const introduction = {
 };
 
 const activity1 = {
+  id: 'activity1',
   title: 'Activity 1: Make a HTTP Request',
   description: [
     `In this activity we will use an RxJS Observable to make an HTTP Request.`
@@ -61,7 +63,7 @@ this.service.randomImage()
   ],
 };
 
-export const lesson4 = {
+export const lesson4 = [
   introduction,
   activity1,
-};
+];

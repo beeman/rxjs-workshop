@@ -53,6 +53,8 @@ import { CanvasComponent } from './components/canvas/canvas.component';
     CardComponent,
     CodeComponent,
     CodeStepsComponent,
+    LayoutComponent,
+    LayoutSidebarComponent,
     CountryCardComponent,
     LoaderComponent,
     PersonCardComponent,

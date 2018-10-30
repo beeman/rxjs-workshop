@@ -1,35 +1,36 @@
 <div class="row">
   <div class="col-md-3">
-    <div class="nav flex-column nav-pills mb-5" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+    <div class="nav flex-column nav-pills mb-5" id="v-pills-tab" role="tablist" aria-orientation="vertical"
+         *ngIf="links">
       <ng-container *ngFor="let link of links; let i = index">
 
-        <a class="nav-link" data-toggle="pill" role="tab"
+        <div  routerLinkActive="active">
 
-           [routerLink]="link.url" routerLinkActive="active">
-          {{link.label}}
-        </a>
+          <a class="nav-link" data-toggle="pill" role="tab"
 
-        <ul *ngIf="link.children.length" class="list-unstyled ml-5">
-          <li *ngFor="let child of link.children; let j = index">
+             [routerLink]="link.url" routerLinkActive="active">
+            {{link.label}}
+          </a>
 
-            <a class="nav-link" data-toggle="pill" role="tab"
-               [routerLink]="[link.url, child.url]" routerLinkActive="active">
-              {{child.label}}
-            </a>
+          <ul *ngIf="link.children.length" class="list-unstyled ml-5">
+            <li *ngFor="let child of link.children; let j = index">
 
-          </li>
-        </ul>
+              <a class="nav-link" data-toggle="pill" role="tab"
+                 [routerLink]="[link.url, child.url]" routerLinkActive="active">
+                {{child.label}}
+              </a>
+
+            </li>
+          </ul>
+        </div>
       </ng-container>
     </div>
   </div>
   <div class="col-md-9">
     <div class="tab-content">
       <div class="tab-pane fade show active">
-        <router-outlet></router-outlet>
+        <ng-content></ng-content>
       </div>
     </div>
   </div>
 </div>
-
-reer
-<pre>{{ links | json }}</pre>

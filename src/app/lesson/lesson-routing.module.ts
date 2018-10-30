@@ -1,25 +1,37 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
-import { LayoutSidebarComponent } from '../ui/containers/layout-sidebar/layout-sidebar.component';
-
-import { LinksResolver } from './resolvers/links.resolver';
+import { LessonIndexComponent } from './containers/lesson-index/lesson-index.component';
+import { LessonOverviewComponent } from './containers/lesson-index/lesson-overview.component';
+import { LessonActivityComponent } from './containers/lesson-index/lesson-activity.component';
+import { ActivityResolver } from './resolvers/activity.resolver';
+import { LessonResolver } from './resolvers/lesson.resolver';
 
 
 const routes: Routes = [{
   path: '',
-  component: LayoutSidebarComponent,
-  resolve: {
-    links: LinksResolver,
-  },
   children: [
-    {path: '', pathMatch: 'full', redirectTo: 'lesson2'},
     {
-      path: 'lesson2',
-      loadChildren: './lesson2/lesson2.module#Lesson2Module',
-      data: {
-        lessonId: 'lesson2',
-      },
+      path: '',
+      component: LessonIndexComponent,
+      children: [
+        {
+          path: ':lessonId',
+          component: LessonOverviewComponent,
+          resolve: {
+            lesson: LessonResolver
+          },
+          children: [
+            {
+              path: ':activityId',
+              component: LessonActivityComponent,
+              resolve: {
+                activity: ActivityResolver
+              },
+            },
+          ]
+        },
+      ]
     },
   ]
 }];

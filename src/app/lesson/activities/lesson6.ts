@@ -1,4 +1,5 @@
 export const introduction = {
+  id: 'introduction',
   title: 'Creating Observables',
   description: [
     `In this demo we will see a few ways to create observables, starting with the ones you can just call to create the observable, to creating one from scratch.`,
@@ -8,6 +9,7 @@ export const introduction = {
 };
 
 export const activity1 = {
+  id: 'activity1',
   title: 'Activity 1: use the of Observable',
   description: [
     `Using the <code>of</code> Observable we can emit series of custom values.`,
@@ -43,6 +45,7 @@ export const activity1 = {
 };
 
 export const activity2 = {
+  id: 'activity2',
   title: 'Activity 2: from',
   description: [
     `With the <code>from</code> Observable we turn a Promise, Array or Iterable into an Observable.`,
@@ -76,6 +79,7 @@ from(promise)
 };
 
 export const activity3 = {
+  id: 'activity3',
   title: 'Activity 3: throwError',
   description: [
     `In this activity we use the <code>throwError</code> observable to generate a custom error stream.`,
@@ -110,6 +114,7 @@ export const activity3 = {
 };
 
 export const activity4 = {
+  id: 'activity4',
   title: 'Activity 4: Observable.create',
   description: [
     `In this activity we use <code>Observable.create</code> to create a custom observable. We can send our own values to it inside the method block.`,
@@ -168,6 +173,7 @@ myObservable.subscribe(
 };
 
 export const activity5 = {
+  id: 'activity5',
   title: 'Excercise 1: empty, interval, range',
   description: [
     `In this exercise we look at some more 'creation' observables.`
@@ -195,11 +201,11 @@ export const activity5 = {
 };
 
 
-export const lesson6 = {
+export const lesson6 = [
   introduction,
   activity1,
   activity2,
   activity3,
   activity4,
   activity5,
-};
+];

@@ -1,7 +1,5 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { fromEvent, Observable } from 'rxjs';
-import { data } from '../../../../data';
-import { debounceTime } from 'rxjs/operators';
 
 @Component({
   template: `
@@ -14,12 +12,12 @@ import { debounceTime } from 'rxjs/operators';
       <button #button class="btn btn-primary">
         Clicked {{buttonCounter}} times
       </button>
-
     </app-activity>
+    
   `,
 })
-export class Lesson2activity3Component implements OnInit {
-  public readonly activity = data.lesson2.activity3;
+export class Lesson2activity1Component implements OnInit {
+  @Input() public activity;
 
   // Get a reference to the elements using their #tag
   @ViewChild('button') buttonRef: ElementRef;
@@ -33,8 +31,7 @@ export class Lesson2activity3Component implements OnInit {
   // The counters for each of the buttons
   public buttonCounter = 0;
 
-  // Debounce time in ms
-  public debounceDelay = 500;
+  constructor() {}
 
   ngOnInit() {
     // Assign the nativeElements.
@@ -51,8 +48,10 @@ export class Lesson2activity3Component implements OnInit {
    * Solution for Activity
    */
   solution() {
-    this.button$
-      .pipe(debounceTime(this.debounceDelay))
-      .subscribe(() => this.buttonCounter++);
+    this.button$.subscribe(
+      () => {
+        this.buttonCounter++;
+      },
+    );
   }
 }

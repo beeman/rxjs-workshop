@@ -1,7 +1,7 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { fromEvent, Observable } from 'rxjs';
-import { data } from '../../../../data';
-import { throttleTime } from 'rxjs/operators';
+
+import { skip } from 'rxjs/operators';
 
 @Component({
   template: `
@@ -18,8 +18,8 @@ import { throttleTime } from 'rxjs/operators';
     </app-activity>
   `,
 })
-export class Lesson2activity2Component implements OnInit {
-  public readonly activity = data.lesson2.activity2;
+export class Lesson2activity5Component implements OnInit {
+  @Input() public activity;
 
   // Get a reference to the elements using their #tag
   @ViewChild('button') buttonRef: ElementRef;
@@ -33,8 +33,8 @@ export class Lesson2activity2Component implements OnInit {
   // The counters for each of the buttons
   public buttonCounter = 0;
 
-  // Throttle duration in ms
-  public throttleDelay = 1000;
+  // Number of events to skip
+  public skipAmount = 5;
 
   ngOnInit() {
     // Assign the nativeElements.
@@ -52,7 +52,7 @@ export class Lesson2activity2Component implements OnInit {
    */
   solution() {
     this.button$
-      .pipe(throttleTime(this.throttleDelay))
+      .pipe(skip(this.skipAmount))
       .subscribe(() => this.buttonCounter++);
   }
 }

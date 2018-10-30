@@ -1,4 +1,5 @@
 const introduction = {
+  id: 'introduction',
   title: 'Handling events',
   description: [
     `In this demo we use different ways to listen to the events of a button click.`,
@@ -8,6 +9,7 @@ const introduction = {
 };
 
 const activity1 = {
+  id: 'activity1',
   title: 'Activity 1: addEventListener',
   description: [
     'In this activity we listen to a button click using the default <code>addEventListener</code> method provided by the browser.'
@@ -40,6 +42,7 @@ const activity1 = {
 };
 
 const activity2 = {
+  id: 'activity2',
   title: 'Activity 2: fromEvent',
   description: [
     `The second button uses the <code>fromEvent</code> Observable.`
@@ -89,6 +92,7 @@ this.activity2sub = this.button2$.subscribe((event: MouseEvent) => {
 };
 
 const activity3 = {
+  id: 'activity3',
   title: 'Activity 3: fromEvent',
   description: [
     `In this case we use the <code>fromEvent</code> Observable again, but in this case we are going to use it to capture the click event anywhere in the document.`
@@ -130,6 +134,7 @@ const activity3 = {
 };
 
 const activity4 = {
+  id: 'activity4',
   title: 'Exercise 1: unsubscribing',
   description: [
     `To prevent memory leaks, we should always consider unsubscribing from our Observables.`,
@@ -152,10 +157,10 @@ const activity4 = {
   ],
 };
 
-export const lesson1 = {
+export const lesson1 = [
   introduction,
   activity1,
   activity2,
   activity3,
   activity4,
-};
+];

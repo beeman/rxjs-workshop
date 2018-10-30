@@ -1,7 +1,6 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { fromEvent, Observable, Subject } from 'rxjs';
-import { data } from '../../../../data';
-import { takeUntil, throttleTime } from 'rxjs/operators';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { fromEvent, Observable } from 'rxjs';
+import { throttleTime } from 'rxjs/operators';
 
 @Component({
   template: `
@@ -18,8 +17,8 @@ import { takeUntil, throttleTime } from 'rxjs/operators';
     </app-activity>
   `,
 })
-export class Lesson2activity6Component implements OnInit {
-  public readonly activity = data.lesson2.activity6;
+export class Lesson2activity2Component implements OnInit {
+  @Input() public activity;
 
   // Get a reference to the elements using their #tag
   @ViewChild('button') buttonRef: ElementRef;
@@ -33,8 +32,8 @@ export class Lesson2activity6Component implements OnInit {
   // The counters for each of the buttons
   public buttonCounter = 0;
 
-  // Maximum number of events
-  public takeUntilAmount = 5;
+  // Throttle duration in ms
+  public throttleDelay = 1000;
 
   ngOnInit() {
     // Assign the nativeElements.
@@ -51,14 +50,8 @@ export class Lesson2activity6Component implements OnInit {
    * Solution for Activity
    */
   solution() {
-    const button6stop = new Subject();
     this.button$
-      .pipe(takeUntil(button6stop))
-      .subscribe(() => {
-        if (this.buttonCounter + 1 === this.takeUntilAmount) {
-          button6stop.next();
-        }
-        this.buttonCounter++;
-      });
+      .pipe(throttleTime(this.throttleDelay))
+      .subscribe(() => this.buttonCounter++);
   }
 }

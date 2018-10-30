@@ -5,13 +5,13 @@ import { of } from 'rxjs';
 import { LessonService } from '../services/lesson.service';
 
 @Injectable({providedIn: 'root'})
-export class ActivityResolver implements Resolve<any> {
+export class LessonResolver implements Resolve<any> {
   constructor(private service: LessonService) {}
 
   public resolve(route: ActivatedRouteSnapshot) {
-    const {lessonId, activityId} = route.params;
+    const {lessonId } = route.params;
 
-    return of(this.service.findLessonActivity(lessonId, activityId));
+    return of(this.service.findLesson(lessonId));
   }
 
 }

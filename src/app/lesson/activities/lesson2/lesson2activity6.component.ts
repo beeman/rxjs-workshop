@@ -1,6 +1,6 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { fromEvent, Observable } from 'rxjs';
-import { data } from '../../../../data';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { fromEvent, Observable, Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   template: `
@@ -13,11 +13,12 @@ import { data } from '../../../../data';
       <button #button class="btn btn-primary">
         Clicked {{buttonCounter}} times
       </button>
+
     </app-activity>
   `,
 })
-export class Lesson2activity1Component implements OnInit {
-  public readonly activity = data.lesson2.activity1;
+export class Lesson2activity6Component implements OnInit {
+  @Input() public activity;
 
   // Get a reference to the elements using their #tag
   @ViewChild('button') buttonRef: ElementRef;
@@ -31,7 +32,8 @@ export class Lesson2activity1Component implements OnInit {
   // The counters for each of the buttons
   public buttonCounter = 0;
 
-  constructor() {}
+  // Maximum number of events
+  public takeUntilAmount = 5;
 
   ngOnInit() {
     // Assign the nativeElements.
@@ -48,10 +50,14 @@ export class Lesson2activity1Component implements OnInit {
    * Solution for Activity
    */
   solution() {
-    this.button$.subscribe(
-      () => {
+    const button6stop = new Subject();
+    this.button$
+      .pipe(takeUntil(button6stop))
+      .subscribe(() => {
+        if (this.buttonCounter + 1 === this.takeUntilAmount) {
+          button6stop.next();
+        }
         this.buttonCounter++;
-      },
-    );
+      });
   }
 }

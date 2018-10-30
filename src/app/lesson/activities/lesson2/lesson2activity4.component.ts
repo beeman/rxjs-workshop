@@ -1,7 +1,6 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { fromEvent, Observable } from 'rxjs';
-import { data } from '../../../../data';
-import { skip } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Component({
   template: `
@@ -18,8 +17,8 @@ import { skip } from 'rxjs/operators';
     </app-activity>
   `,
 })
-export class Lesson2activity5Component implements OnInit {
-  public readonly activity = data.lesson2.activity5;
+export class Lesson2activity4Component implements OnInit {
+  @Input() public activity;
 
   // Get a reference to the elements using their #tag
   @ViewChild('button') buttonRef: ElementRef;
@@ -33,8 +32,8 @@ export class Lesson2activity5Component implements OnInit {
   // The counters for each of the buttons
   public buttonCounter = 0;
 
-  // Number of events to skip
-  public skipAmount = 5;
+  // Click multiplier
+  public multiplyAmount = 3;
 
   ngOnInit() {
     // Assign the nativeElements.
@@ -52,7 +51,7 @@ export class Lesson2activity5Component implements OnInit {
    */
   solution() {
     this.button$
-      .pipe(skip(this.skipAmount))
-      .subscribe(() => this.buttonCounter++);
+      .pipe(map(() => this.multiplyAmount))
+      .subscribe((amount) => this.buttonCounter = this.buttonCounter + amount);
   }
 }

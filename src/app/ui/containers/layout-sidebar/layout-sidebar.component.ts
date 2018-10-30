@@ -1,6 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { map } from 'rxjs/operators';
+import { Component, Input } from '@angular/core';
 
 interface Link {
   label: string;
@@ -11,17 +9,15 @@ interface Link {
 @Component({
   selector: 'app-layout-sidebar',
   templateUrl: './layout-sidebar.component.html',
+  styles: [`
+    ul {
+      display: none;
+    }
+    .active ul{
+      display: block;
+    }
+  `]
 })
-export class LayoutSidebarComponent implements OnInit {
+export class LayoutSidebarComponent {
   @Input() public links: Link[];
-
-  constructor(private route: ActivatedRoute) {
-  }
-
-  ngOnInit() {
-    this.route.data
-      .pipe(map(data => data['links']))
-      .subscribe(res => this.links = res);
-  }
-
 }
