@@ -1,35 +1,25 @@
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { fromEvent, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Component({
   template: `
-    <app-activity [title]="activity.title"
-                  [description]="activity.description"
-                  [steps]="activity.steps"
-                  [solution]="activity.solution"
-                  [result]="buttonCounter">
-
-      <button #button class="btn btn-primary">
-        Clicked {{buttonCounter}} times
-      </button>
-
-    </app-activity>
+    <button #button class="btn btn-primary">
+      Clicked {{buttonCounter}} times
+    </button>
   `,
 })
-export class Lesson2activity4Component implements OnInit {
-  @Input() public activity;
-
-  // Get a reference to the elements using their #tag
+export class Activity4Component implements OnInit {
+  // Get a reference to the elements using the #tag
   @ViewChild('button') buttonRef: ElementRef;
 
-  // Store a reference to the actual nativeElement
+  // Store a reference to the nativeElement
   private button: HTMLElement;
 
-  // Button Observables
+  // Button Observable
   private button$: Observable<Event>;
 
-  // The counters for each of the buttons
+  // The counters for the button
   public buttonCounter = 0;
 
   // Click multiplier

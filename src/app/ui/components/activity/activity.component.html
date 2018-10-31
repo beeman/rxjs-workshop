@@ -23,23 +23,11 @@
     </div>
   </div>
 
-  <div class="card-body" *ngIf="steps || showContent">
+  <div class="card-body" *ngIf="steps">
     <ng-container *ngIf="steps">
       <app-code-steps [steps]="steps"></app-code-steps>
     </ng-container>
-
-    <ng-container *ngIf="showContent">
-      <div class="mb-4 mt-5">
-        <ng-content></ng-content>
-      </div>
-    </ng-container>
   </div>
 
-  <ng-container *ngIf="showResult">
-    <div class="card-header">Result</div>
-    <div class="card-body">
-      <pre *ngIf="result" class="mb-0">{{ result | json }} </pre>
-    </div>
-  </ng-container>
-
+  <ng-content></ng-content>
 </div>

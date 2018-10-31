@@ -1,14 +1,14 @@
-import { Lesson2introductionComponent } from './lesson2/lesson2introduction.component';
-import { Lesson2activity1Component } from './lesson2/lesson2activity1.component';
-import { Lesson2activity2Component } from './lesson2/lesson2activity2.component';
-import { Lesson2activity3Component } from './lesson2/lesson2activity3.component';
-import { Lesson2activity4Component } from './lesson2/lesson2activity4.component';
-import { Lesson2activity5Component } from './lesson2/lesson2activity5.component';
-import { Lesson2activity6Component } from './lesson2/lesson2activity6.component';
+import { Activity, Lesson } from '../../../types';
 
-const introduction = {
+import { Activity1Component } from './activity1.component';
+import { Activity2Component } from './activity2.component';
+import { Activity3Component } from './activity3.component';
+import { Activity4Component } from './activity4.component';
+import { Activity5Component } from './activity5.component';
+import { Activity6Component } from './activity6.component';
+
+const introduction: Activity = {
   id: 'introduction',
-  component: Lesson2introductionComponent,
   title: 'Transform streams',
   description: [
     `In this demo all the buttons listen to the click event using the <code>fromEvent</code> Observable.`,
@@ -19,9 +19,9 @@ const introduction = {
   ],
 };
 
-const activity1 = {
+const activity1: Activity = {
   id: 'activity1',
-  component: Lesson2activity1Component,
+  component: Activity1Component,
   title: 'Activity 1: Subscription only',
   description: [
     `Subscribe to the button clicks without transforming the stream. (Without using the <code>pipe()</code> method.)`
@@ -46,9 +46,9 @@ const activity1 = {
   ],
 };
 
-const activity2 = {
+const activity2: Activity = {
   id: 'activity2',
-  component: Lesson2activity2Component,
+  component: Activity2Component,
   title: 'Activity 2: Throttle clicks with a delay',
   description: [
     `The <code>throttleTime</code> operator limits the number of events that get emitted in the specified time, emitting the latest value when specified duration has passed.`
@@ -80,9 +80,9 @@ const activity2 = {
   ],
 };
 
-const activity3 = {
+const activity3: Activity = {
   id: 'activity3',
-  component: Lesson2activity3Component,
+  component: Activity3Component,
   title: 'Activity 3: Debounce the clicks with a delay.',
   description: [
     `The <code>debounceTime</code> operator sets the specified time it waits between events before emitting the event.`
@@ -111,9 +111,9 @@ const activity3 = {
   ],
 };
 
-const activity4 = {
+const activity4: Activity = {
   id: 'activity4',
-  component: Lesson2activity4Component,
+  component: Activity4Component,
   title: 'Activity 4: Modify the result of the event.',
   description: [
     `The <code>map</code> operator can modify the result of the stream.`,
@@ -152,9 +152,9 @@ const activity4 = {
 };
 
 
-const activity5 = {
+const activity5: Activity = {
   id: 'activity5',
-  component: Lesson2activity5Component,
+  component: Activity5Component,
   title: 'Exercise 1: Skip the first number of clicks.',
   description: [
     `The <code>skip</code> operator starts emitting after the specified amount.`,
@@ -182,9 +182,9 @@ const activity5 = {
   ],
 };
 
-const activity6 = {
+const activity6: Activity = {
   id: 'activity6',
-  component: Lesson2activity6Component,
+  component: Activity6Component,
   title: 'Exercise 2: Stop counting after a number of clicks',
   description: [
     `The <code>takeUntil</code> operator limits the number of events that will be emitted.`,
@@ -254,12 +254,16 @@ this.button6$
 };
 
 
-export const lesson2 = [
-  introduction,
-  activity1,
-  activity2,
-  activity3,
-  activity4,
-  activity5,
-  activity6,
-];
+export const lesson2: Lesson = {
+  id: 'lesson2',
+  title: 'Handling events',
+  activities: [
+    introduction,
+    activity1,
+    activity2,
+    activity3,
+    activity4,
+    activity5,
+    activity6,
+  ],
+};

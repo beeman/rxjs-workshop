@@ -9,5 +9,4 @@ export class ActivitiesResolver implements Resolve<any> {
   public resolve() {
     return of(this.service.lessons);
   }
-
 }

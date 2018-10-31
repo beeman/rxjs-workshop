@@ -1,4 +1,6 @@
-const introduction = {
+import { Activity, Lesson } from '../../../types';
+
+const introduction: Activity = {
   id: 'introduction',
   title: 'Draw one a Canvas',
   description: [
@@ -7,7 +9,7 @@ const introduction = {
   ],
 };
 
-const activity1 = {
+const activity1: Activity = {
   id: 'activity1',
   title: 'Activity 1: Draw with your mouse!',
   description: [],
@@ -20,8 +22,6 @@ const paints$ = this.down$
     switchMap(() => this.move$
       .pipe(takeUntil(this.up$)))
   );
-
-
 `,
   steps: [
     {
@@ -45,7 +45,12 @@ this.up$ = fromEvent(this.canvas.element, 'mouseup');`,
   ],
 };
 
-export const lesson3 = [
-  introduction,
-  activity1,
-];
+
+export const lesson3: Lesson = {
+  id: 'lesson3',
+  title: 'Drawing on canvas',
+  activities: [
+    introduction,
+    activity1
+  ],
+};

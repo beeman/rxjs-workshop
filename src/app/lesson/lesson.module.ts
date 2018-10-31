@@ -1,16 +1,21 @@
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 import { AppSharedModule } from '../app-shared.module';
 
-import { LessonRoutingModule } from './lesson-routing.module';
-import { LessonActivityComponent } from './containers/lesson-index/lesson-activity.component';
+import { routes } from './lesson-routing.module';
+
+import { LessonActivityComponent } from './containers/lesson-activity/lesson-activity.component';
 import { LessonIndexComponent } from './containers/lesson-index/lesson-index.component';
-import { LessonOverviewComponent } from './containers/lesson-index/lesson-overview.component';
+import { LessonOverviewComponent } from './containers/lesson-overview/lesson-overview.component';
+
+import { Lesson2Module } from './activities/lesson2/lesson2.module';
 
 @NgModule({
   imports: [
     AppSharedModule,
-    LessonRoutingModule
+    Lesson2Module,
+    RouterModule.forChild(routes),
   ],
   declarations: [
     LessonActivityComponent,

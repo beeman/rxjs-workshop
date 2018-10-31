@@ -8,11 +8,8 @@ import { Component, Input } from '@angular/core';
 export class ActivityComponent {
   @Input() public description: string[];
   @Input() public title: string;
-  @Input() public result: any;
   @Input() public steps: any[];
   @Input() public solution: string;
-  @Input() public showContent = true;
-  @Input() public showResult = true;
   @Input() public showSolution = false;
   @Input() public showSolutionLink = true;
 }

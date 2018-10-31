@@ -1,27 +1,22 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { AppSharedModule } from './app-shared.module';
+import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { AuthModule } from './auth/auth.module';
+import { RouterModule } from '@angular/router';
 
-import { FirebaseModule } from './firebase.module';
+import { AppComponent } from './app.component';
+import { routes } from './app-routing.module';
+import { AppSharedModule } from './app-shared.module';
 
 @NgModule({
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    RouterModule.forRoot(routes),
     AppSharedModule,
     HttpClientModule,
-    AuthModule,
-    FirebaseModule
   ],
   declarations: [
     AppComponent
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule {}

@@ -4,45 +4,35 @@ import { debounceTime } from 'rxjs/operators';
 
 @Component({
   template: `
-    <app-activity [title]="activity.title"
-                  [description]="activity.description"
-                  [steps]="activity.steps"
-                  [solution]="activity.solution"
-                  [result]="buttonCounter">
-
-      <button #button class="btn btn-primary">
-        Clicked {{buttonCounter}} times
-      </button>
-
-    </app-activity>
+    <button #button class="btn btn-primary">
+      Clicked {{buttonCounter}} times
+    </button>
   `,
 })
-export class Lesson2activity3Component implements OnInit {
-  @Input() public activity;
-
-  // Get a reference to the elements using their #tag
+export class Activity3Component implements OnInit {
+  // Get a reference to the elements using the #tag
   @ViewChild('button') buttonRef: ElementRef;
 
-  // Store a reference to the actual nativeElement
+  // Store a reference to the nativeElement
   private button: HTMLElement;
 
-  // Button Observables
+  // Button Observable
   private button$: Observable<Event>;
 
-  // The counters for each of the buttons
+  // The counters for the button
   public buttonCounter = 0;
 
   // Debounce time in ms
   public debounceDelay = 500;
 
   ngOnInit() {
-    // Assign the nativeElements.
+    // Assign the nativeElement
     this.button = this.buttonRef.nativeElement;
 
-    // Set up the fromEvent Observables
+    // Set up the fromEvent Observable
     this.button$ = fromEvent(this.button, 'click');
 
-    // Run the activities
+    // Run the activity
     this.solution();
   }
 

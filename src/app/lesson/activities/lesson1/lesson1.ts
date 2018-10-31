@@ -1,4 +1,11 @@
-const introduction = {
+import { Activity, Lesson } from '../../../types';
+
+import { Activity1Component } from './activity1.component';
+import { Activity2Component } from './activity2.component';
+import { Activity3Component } from './activity3.component';
+import { Activity4Component } from './activity4.component';
+
+const introduction: Activity = {
   id: 'introduction',
   title: 'Handling events',
   description: [
@@ -8,8 +15,9 @@ const introduction = {
   showResult: false,
 };
 
-const activity1 = {
+const activity1: Activity = {
   id: 'activity1',
+  component: Activity1Component,
   title: 'Activity 1: addEventListener',
   description: [
     'In this activity we listen to a button click using the default <code>addEventListener</code> method provided by the browser.'
@@ -41,8 +49,9 @@ const activity1 = {
   ],
 };
 
-const activity2 = {
+const activity2: Activity = {
   id: 'activity2',
+  component: Activity2Component,
   title: 'Activity 2: fromEvent',
   description: [
     `The second button uses the <code>fromEvent</code> Observable.`
@@ -91,8 +100,9 @@ this.activity2sub = this.button2$.subscribe((event: MouseEvent) => {
   ],
 };
 
-const activity3 = {
+const activity3: Activity = {
   id: 'activity3',
+  component: Activity3Component,
   title: 'Activity 3: fromEvent',
   description: [
     `In this case we use the <code>fromEvent</code> Observable again, but in this case we are going to use it to capture the click event anywhere in the document.`
@@ -133,8 +143,9 @@ const activity3 = {
   ],
 };
 
-const activity4 = {
+const activity4: Activity = {
   id: 'activity4',
+  component: Activity4Component,
   title: 'Exercise 1: unsubscribing',
   description: [
     `To prevent memory leaks, we should always consider unsubscribing from our Observables.`,
@@ -157,10 +168,14 @@ const activity4 = {
   ],
 };
 
-export const lesson1 = [
-  introduction,
-  activity1,
-  activity2,
-  activity3,
-  activity4,
-];
+export const lesson1: Lesson = {
+  id: 'lesson1',
+  title: 'Introduction',
+  activities: [
+    introduction,
+    activity1,
+    activity2,
+    activity3,
+    activity4,
+  ],
+};

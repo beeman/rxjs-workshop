@@ -1,4 +1,6 @@
-export const introduction = {
+import { Activity, Lesson } from '../../../types';
+
+export const introduction: Activity = {
   id: 'introduction',
   title: 'Creating Observables',
   description: [
@@ -8,7 +10,7 @@ export const introduction = {
   ],
 };
 
-export const activity1 = {
+export const activity1: Activity = {
   id: 'activity1',
   title: 'Activity 1: use the of Observable',
   description: [
@@ -44,7 +46,7 @@ export const activity1 = {
   ],
 };
 
-export const activity2 = {
+export const activity2: Activity = {
   id: 'activity2',
   title: 'Activity 2: from',
   description: [
@@ -78,7 +80,7 @@ from(promise)
   ],
 };
 
-export const activity3 = {
+export const activity3: Activity = {
   id: 'activity3',
   title: 'Activity 3: throwError',
   description: [
@@ -113,7 +115,7 @@ export const activity3 = {
   ],
 };
 
-export const activity4 = {
+export const activity4: Activity = {
   id: 'activity4',
   title: 'Activity 4: Observable.create',
   description: [
@@ -172,7 +174,7 @@ myObservable.subscribe(
   ],
 };
 
-export const activity5 = {
+export const activity5: Activity = {
   id: 'activity5',
   title: 'Excercise 1: empty, interval, range',
   description: [
@@ -200,12 +202,15 @@ export const activity5 = {
   ],
 };
 
-
-export const lesson6 = [
-  introduction,
-  activity1,
-  activity2,
-  activity3,
-  activity4,
-  activity5,
-];
+export const lesson6: Lesson = {
+  id: 'lesson6',
+  title: 'Creating Observables',
+  activities: [
+    introduction,
+    activity1,
+    activity2,
+    activity3,
+    activity4,
+    activity5,
+  ],
+};

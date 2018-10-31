@@ -1,6 +1,6 @@
-# RxJS: like a boss!
+# RxJS: from trainee to boss!
 
-In this repo you'll find all the examples you need to participate in the workshop **RxJS: like a boss** at NG-Colombia 2018.
+In this repo you'll find all the examples you need to participate in the workshop **RxJS: from trainee to boss**.
 
 ## License
 

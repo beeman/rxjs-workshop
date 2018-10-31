@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Step } from '../../../sdk/models';
+import { Step } from '../../../types';
 
 @Component({
   selector: 'app-code-steps',

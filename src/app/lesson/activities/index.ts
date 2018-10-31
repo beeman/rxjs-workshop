@@ -1,3 +1,5 @@
+import { Lesson } from '../../types';
+
 const lessonLink = (url: string, label: string, children: any[] = []) => ({
   url,
   label,
@@ -9,44 +11,20 @@ const activityLink = (url: string, label: string) => ({
   label,
 });
 
-import { lesson1 } from './lesson1';
-import { lesson2 } from './lesson2';
-import { lesson3 } from './lesson3';
-import { lesson4 } from './lesson4';
-import { lesson5 } from './lesson5';
-import { lesson6 } from './lesson6';
+import { lesson1 } from './lesson1/lesson1';
+import { lesson2 } from './lesson2/lesson2';
+import { lesson3 } from './lesson3/lesson3';
+import { lesson4 } from './lesson4/lesson4';
+import { lesson5 } from './lesson5/lesson5';
+import { lesson6 } from './lesson6/lesson6';
 
-export const lessons = [
-  {
-    id: 'lesson1',
-    title: 'Introduction',
-    activities: [...lesson1],
-  },
-  {
-    id: 'lesson2',
-    title: 'Handling events',
-    activities: [...lesson2],
-  },
-  {
-    id: 'lesson3',
-    title: 'Drawing on canvas',
-    activities: [...lesson3],
-  },
-  {
-    id: 'lesson4',
-    title: 'Network Request',
-    activities: [...lesson4],
-  },
-  {
-    id: 'lesson5',
-    title: 'Text Input',
-    activities: [...lesson5],
-  },
-  {
-    id: 'lesson6',
-    title: 'Creating Observables',
-    activities: [...lesson6],
-  },
+export const lessons: Lesson[] = [
+  lesson1,
+  lesson2,
+  lesson3,
+  lesson4,
+  lesson5,
+  lesson6,
 ];
 
 export const lessonSidebar = lessons.map((lesson) => {

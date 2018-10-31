@@ -1,4 +1,6 @@
-const introduction = {
+import { Activity, Lesson } from '../../../types';
+
+const introduction: Activity = {
   id: 'introduction',
   title: 'Network Request',
   description: [
@@ -6,7 +8,7 @@ const introduction = {
   ],
 };
 
-const activity1 = {
+const activity1: Activity = {
   id: 'activity1',
   title: 'Activity 1: Make a HTTP Request',
   description: [
@@ -63,7 +65,11 @@ this.service.randomImage()
   ],
 };
 
-export const lesson4 = [
-  introduction,
-  activity1,
-];
+export const lesson4: Lesson = {
+  id: 'lesson4',
+  title: 'Network Request',
+  activities: [
+    introduction,
+    activity1,
+  ]
+};

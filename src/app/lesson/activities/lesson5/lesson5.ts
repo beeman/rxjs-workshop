@@ -1,4 +1,6 @@
-const introduction = {
+import { Activity, Lesson } from '../../../types';
+
+const introduction: Activity = {
   id: 'introduction',
   title: 'Text input',
   description: [
@@ -7,10 +9,10 @@ const introduction = {
   ],
 };
 
-const activity1 = {
+const activity1: Activity = {
   id: 'activity1',
   title: 'Activity 1: Read the text of an input',
-  description: [],
+  description: [''],
   solution: `this.input1$.subscribe((event) => {
   console.log(event);
   this.result1.value = this.input1.value;
@@ -40,7 +42,7 @@ const activity1 = {
 };
 
 
-const activity2 = {
+const activity2: Activity = {
   id: 'activity2',
   title: 'Activity 2: Transform the text of an input',
   description: [
@@ -126,10 +128,10 @@ this.input2$query
 };
 
 
-const activity3 = {
+const activity3: Activity = {
   id: 'activity3',
   title: 'Activity 3: Use the text input to make an API request',
-  description: [],
+  description: [''],
   solution: `this.input3$query = this.input3$.pipe(
   map(() => this.input3.value),
   debounceTime(this.debounceDelay),
@@ -200,9 +202,13 @@ this.input3$query.pipe(
   ],
 };
 
-export const lesson5 = [
-  introduction,
-  activity1,
-  activity2,
-  activity3,
-];
+export const lesson5: Lesson = {
+  id: 'lesson5',
+  title: 'Text Input',
+  activities: [
+    introduction,
+    activity1,
+    activity2,
+    activity3,
+  ],
+};
