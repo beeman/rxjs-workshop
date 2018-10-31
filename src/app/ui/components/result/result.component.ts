@@ -2,7 +2,11 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-result',
-  templateUrl: './result.component.html',
+  template: `
+    <div class="mt-5">
+      <pre>{{ result | json }}</pre>
+    </div>
+  `,
 })
 export class ResultComponent {
   @Input() public result: any;

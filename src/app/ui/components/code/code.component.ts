@@ -4,8 +4,11 @@ import 'prismjs/components/prism-typescript';
 
 @Component({
   selector: 'app-code',
-  templateUrl: './code.component.html',
-  styles: []
+  template: `
+    <prism [language]="language">
+      <ng-content></ng-content>
+    </prism>
+  `,
 })
 export class CodeComponent {
   @Input() public language = 'ts';

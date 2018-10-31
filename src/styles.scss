@@ -1,9 +1,12 @@
 // Bootswatch themes
+// You can preview the themes on https://bootswatch.com/
+//
+// Then update the next import with one of these names:
 // cerulean, cosmo, cyborg, darkly, flatly, journal, litera, lumen, lux, materia, minty
 // pulse, sandstone, simplex, sketchy, slate, solar, spacelab, superhero, united
 @import "~bootswatch/dist/darkly/bootstrap.min.css";
 
-// Font Awesome Is not imported in index.html so it works in StackBlitz
+// Font Awesome Is not imported here but in index.html, otherwise it does not work in StackBlitz
 //@import "~font-awesome/css/font-awesome.min.css";
 
 //@import "~prismjs/themes/prism-dark.css";

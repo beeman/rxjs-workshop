@@ -1,36 +1,26 @@
 <div class="row">
-  <div class="col-md-3">
-    <div class="nav flex-column nav-pills mb-5" id="v-pills-tab" role="tablist" aria-orientation="vertical"
-         *ngIf="links">
+  <div class="col-xl-10 col-lg-9 order-lg-2">
+    <ng-content></ng-content>
+  </div>
+  <div class="col-xl-2 col-lg-3 order-lg-1">
+    <div class="nav flex-column nav-pills mb-5"
+         id="v-pills-tab" role="tablist" aria-orientation="vertical">
       <ng-container *ngFor="let link of links; let i = index">
-
-        <div  routerLinkActive="active">
-
-          <a class="nav-link" data-toggle="pill" role="tab"
-
-             [routerLink]="link.url" routerLinkActive="active">
+        <div routerLinkActive="active">
+          <a class="nav-link mb-3" data-toggle="pill" role="tab"
+             [routerLink]="['/', link.url]" routerLinkActive="active">
             {{link.label}}
           </a>
-
-          <ul *ngIf="link.children.length" class="list-unstyled ml-5">
+          <ul *ngIf="link.children.length" class="list-unstyled ml-3">
             <li *ngFor="let child of link.children; let j = index">
-
-              <a class="nav-link" data-toggle="pill" role="tab"
-                 [routerLink]="[link.url, child.url]" routerLinkActive="active">
+              <a class="nav-link my-2" data-toggle="pill" role="tab"
+                 [routerLink]="['/', link.url, child.url]" routerLinkActive="active">
                 {{child.label}}
               </a>
-
             </li>
           </ul>
         </div>
       </ng-container>
-    </div>
-  </div>
-  <div class="col-md-9">
-    <div class="tab-content">
-      <div class="tab-pane fade show active">
-        <ng-content></ng-content>
-      </div>
     </div>
   </div>
 </div>
