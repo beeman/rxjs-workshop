@@ -16,7 +16,7 @@ import { Activity, Lesson } from '../../../types';
                [class.btn-primary]="la.isExercise && la.id !== activity.id"
                [class.btn-success]="la.id === activity.id"
                [routerLink]="['../', la.id]">
-              {{ la.isExercise ? 'Exercise': 'Activity' }} {{ i + 1 }}
+              {{ i }}
             </a>
           </ng-container>
         </div>

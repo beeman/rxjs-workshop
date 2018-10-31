@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../../services/data.service';
-import {  } from 'rxjs/operators';
+import { } from 'rxjs/operators';
 
 @Component({
   template: `
     <!-- The button that initiates the request -->
     <div class="my-3">
       <button (click)="solution()"
+              class="btn btn-primary"
               [disabled]="loading">Get Random Gif</button>
     </div>
 

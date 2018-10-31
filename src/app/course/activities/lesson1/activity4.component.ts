@@ -1,10 +1,11 @@
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { fromEvent, Observable } from 'rxjs';
+import { fromEvent, Observable, Subscription } from 'rxjs';
 import { } from 'rxjs/operators';
 
 @Component({
   template: `
-    <button #button1 class="btn btn-primary">Button 1</button>
+    <button #button class="btn btn-primary">Click</button>
+    <app-result [result]="result"></app-result>
   `,
 })
 export class Activity4Component implements OnDestroy, OnInit {
@@ -17,8 +18,11 @@ export class Activity4Component implements OnDestroy, OnInit {
   // Button Observable
   private button$: Observable<Event>;
 
-  // The counters for the button
-  public buttonCounter = 0;
+  // The result
+  public result = {};
+
+  // Reference to the Subscription
+  public sub: Subscription;
 
   ngOnInit() {
     // Assign the nativeElement
@@ -29,16 +33,23 @@ export class Activity4Component implements OnDestroy, OnInit {
 
     // Run the activity
     this.solution();
+
+    this.sub = fromEvent(document, 'click')
+      .subscribe(
+        (event: MouseEvent) => {
+          this.result = {x: event.clientX, y: event.clientY};
+        });
   }
 
   ngOnDestroy() {
-
+    this.sub.unsubscribe();
   }
 
   /**
    * Solution for Activity
    */
   solution() {
+    // The solution should be implemented in ngOnDestroy
   }
 
 }

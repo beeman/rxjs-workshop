@@ -26,7 +26,7 @@ export const activity1: Activity = {
     `These values can be strings, objects, arrays or functions.`
   ],
   solution: `of( Date.now() )
-  .subscribe(result => this.result1 = result);
+  .subscribe(result => this.result = result);
 `,
   steps: [
     {
@@ -38,8 +38,8 @@ export const activity1: Activity = {
       code: `of( Date.now() )`,
     },
     {
-      step: `Chain <code>subscribe()</code> to the Observable and assign the result to <code>result1</code>.`,
-      code: `.subscribe(result => this.result1 = result);`
+      step: `Chain <code>subscribe()</code> to the Observable and assign the result to <code>result</code>.`,
+      code: `.subscribe(result => this.result = result);`
     },
     {
       step: 'Run the example clicking the button at the end of this activity and observe the result.',
@@ -65,7 +65,7 @@ export const activity2: Activity = {
   solution: `const promise = Promise.resolve({ name: 'Awesome Dev', date: Date.now()});
 
 from(promise)
-  .subscribe(result => this.result2 = result);`,
+  .subscribe(result => this.result = result);`,
   steps: [
     {
       step: `First we define a local constant <code>promise</code> and set the value to <code>Promise.resolve()</code>.`,
@@ -80,8 +80,8 @@ from(promise)
       code: `from(promise)`,
     },
     {
-      step: `Chain <code>subscribe()</code> to the Observable and assign the result to <code>result2</code>.`,
-      code: `.subscribe(result => this.result2 = result);`
+      step: `Chain <code>subscribe()</code> to the Observable and assign the result to <code>result</code>.`,
+      code: `.subscribe(result => this.result = result);`
     },
     {
       step: 'Run the example and observe the result.',
@@ -101,7 +101,7 @@ export const activity3: Activity = {
   solution: `throwError('This is the error message')
   .subscribe(
     {
-      error: (err) => this.result3 = err,
+      error: (err) => this.result = err,
     }
   );`,
   steps: [
@@ -114,9 +114,9 @@ export const activity3: Activity = {
       code: `.subscribe({});`
     },
     {
-      step: `Add an <code>error</code> key to the object with its callback function to asign error message to <code>result3 </code>.`,
+      step: `Add an <code>error</code> key to the object with its callback function to asign error message to <code>result </code>.`,
       code: `.subscribe({
-  error: (message) => this.result3 = message,
+  error: (message) => this.result = message,
 });`
     },
     {
@@ -140,7 +140,7 @@ export const activity4: Activity = {
 });
 
 myObservable.subscribe(
-  (result) => this.result4 = result,
+  (result) => this.result = result,
   () => console.log('Activity 4 completed'),
 );`,
   steps: [
@@ -168,7 +168,7 @@ myObservable.subscribe(
       step: `Create a callback method for <code>next</code> and <code>complete</code>`,
       code: `myObservable
   .subscribe({
-    next: (result) => this.result4 = result,
+    next: (result) => this.result = result,
     complete: () => console.log('activity 4 completed'),
   });`
     },
@@ -194,7 +194,7 @@ export const activity5: Activity = {
     `In this exercise we look at some more 'creation' observables.`
   ],
   solution: `EMPTY.subscribe({
-  next: (result) => this.result5 = result,
+  next: (result) => this.result = result,
   complete: () => console.log('complete')
 });`,
   steps: [
@@ -205,7 +205,7 @@ export const activity5: Activity = {
     {
       step: `Use the <code>next</code> and <code>complete</code> callbacks to see what this observable emits.`,
       code: `EMPTY.subscribe({
-  next: (result) => this.result5 = result,
+  next: (result) => this.result = result,
   complete: () => console.log('complete')
 });`,
     },

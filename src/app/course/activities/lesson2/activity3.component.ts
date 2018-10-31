@@ -1,6 +1,6 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { fromEvent, Observable } from 'rxjs';
-import { debounceTime } from 'rxjs/operators';
+import { } from 'rxjs/operators';
 
 @Component({
   template: `
@@ -40,8 +40,6 @@ export class Activity3Component implements OnInit {
    * Solution for Activity
    */
   solution() {
-    this.button$
-      .pipe(debounceTime(this.debounceDelay))
-      .subscribe(() => this.buttonCounter++);
+
   }
 }

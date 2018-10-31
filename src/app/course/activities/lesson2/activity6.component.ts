@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { fromEvent, Observable, Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { } from 'rxjs/operators';
 
 @Component({
   template: `
@@ -40,14 +40,6 @@ export class Activity6Component implements OnInit {
    * Solution for Activity
    */
   solution() {
-    const button6stop = new Subject();
-    this.button$
-      .pipe(takeUntil(button6stop))
-      .subscribe(() => {
-        if (this.buttonCounter + 1 === this.takeUntilAmount) {
-          button6stop.next();
-        }
-        this.buttonCounter++;
-      });
+
   }
 }

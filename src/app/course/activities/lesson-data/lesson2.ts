@@ -28,22 +28,24 @@ const activity1: Activity = {
   description: [
     `Subscribe to the button clicks without transforming the stream. (Without using the <code>pipe()</code> method.)`
   ],
-  solution: `this.button1$.subscribe(
-  () => this.increaseCounter('button1'),
+  solution: `this.button$.subscribe(
+  () => this.buttonCounter++,
 );
 `,
   steps: [
     {
-      step: `Call the <code>subscribe()</code> method on <code>this.button1$</code>.`,
-      code: `this.button1$.subscribe();`,
+      step: `Call the <code>subscribe()</code> method on <code>this.button$</code>.`,
+      code: `this.button$.subscribe();`,
     },
     {
-      step: `Take a look to the <code>increaseCounter()</code> method so that you know how it works and then, invoke it in the <code>this.button1$</code> subscription callback.`,
-      code: `() => this.increaseCounter()`,
+      step: `Increase the value of the <code>buttonCounter</code> property`,
+      code: `() =>  this.buttonCounter++`,
     },
     {
-      step: `Pass in the id of the counter you want to increase, <code>button1</code>.`,
-      code: `() => this.increaseCounter('button1')`,
+      step: `The complete method should look like this`,
+      code: `this.button$.subscribe(
+  () => this.buttonCounter++,
+);`,
     },
   ],
 };
@@ -51,25 +53,25 @@ const activity1: Activity = {
 const activity2: Activity = {
   id: 'activity2',
   component: Activity2Component,
-  title: '2: Throttle clicks with a delay',
+  title: '2: Throttle events',
   description: [
     `The <code>throttleTime</code> operator limits the number of events that get emitted in the specified time, emitting the latest value when specified duration has passed.`
   ],
-  solution: `this.button2$
+  solution: `this.button$
   .pipe(throttleTime(this.throttleDelay))
-  .subscribe(() => this.increaseCounter('button2'));`,
+  .subscribe(() => this.buttonCounter++);`,
   steps: [
     {
       step: `Import <code>throttleTime</code> from <code>rxjs/operators</code>.`,
       code: `import { throttleTime } from 'rxjs/operators';`,
     },
     {
-      step: `Call the <code>pipe()</code> method on <code>this.button2$</code>.`,
-      code: `this.button2$.pipe()`,
+      step: `Call the <code>pipe()</code> method on <code>this.button$</code>.`,
+      code: `this.button$.pipe()`,
     },
     {
       step: `Add the <code>throttleTime()</code> to the <code>pipe()</code> method and pass in the <code>throttleDelay</code> variable (already set to 1s).`,
-      code: `this.button2$.pipe(throttleTime(this.throttleDelay))`,
+      code: `this.button$.pipe(throttleTime(this.throttleDelay))`,
     },
     {
       step: `Chain the <code>subscribe()</code> method on <code>pipe()</code> method.`,
@@ -77,7 +79,7 @@ const activity2: Activity = {
     },
     {
       step: `Increase the counter for this button in the subcription callback function`,
-      code: `.subscribe(() => this.increaseCounter('button2'));`,
+      code: `.subscribe(() => this.buttonCounter++);`,
     },
   ],
 };
@@ -85,13 +87,13 @@ const activity2: Activity = {
 const activity3: Activity = {
   id: 'activity3',
   component: Activity3Component,
-  title: '3: Debounce the clicks with a delay.',
+  title: '3: Debounce the events.',
   description: [
     `The <code>debounceTime</code> operator sets the specified time it waits between events before emitting the event.`
   ],
-  solution: `this.button3$
+  solution: `this.button$
   .pipe(debounceTime(this.debounceDelay))
-  .subscribe(() => this.increaseCounter('button3'));
+  .subscribe(() => this.buttonCounter++);
 `,
   steps: [
     {
@@ -99,16 +101,16 @@ const activity3: Activity = {
       code: `import { debounceTime } from 'rxjs/operators';`,
     },
     {
-      step: `Call the <code>pipe()</code> method on <code>this.button3$</code>.`,
-      code: `this.button3$.pipe()`,
+      step: `Call the <code>pipe()</code> method on <code>this.button$</code>.`,
+      code: `this.button$.pipe()`,
     },
     {
       step: `Add the <code>debounceTime()</code> to the <code>pipe()</code> method and pass in the <code>debounceDelay</code> (already set to 500ms).`,
-      code: `this.button3$.pipe(debounceTime(this.debounceDelay))`,
+      code: `this.button$.pipe(debounceTime(this.debounceDelay))`,
     },
     {
       step: `Chain the <code>subscribe()</code> method and increase the counter for this button`,
-      code: `.subscribe(() => this.increaseCounter('button3'));`,
+      code: `.subscribe(() => this.buttonCounter++);`,
     },
   ],
 };
@@ -116,14 +118,14 @@ const activity3: Activity = {
 const activity4: Activity = {
   id: 'activity4',
   component: Activity4Component,
-  title: '4: Modify the result of the event.',
+  title: '4: Modify the event result.',
   description: [
     `The <code>map</code> operator can modify the result of the stream.`,
     `We can use it to send another value to the stream, we will send the value of <code>multiplyAmount</code> (set to 3).`,
   ],
-  solution: `this.button4$
+  solution: `this.button$
   .pipe(map(() => this.multiplyAmount))
-  .subscribe((amount) => this.increaseCounter('button4', amount));
+  .subscribe((amount) => this.increaseCounter('button', amount));
 `,
   steps: [
     {
@@ -131,12 +133,12 @@ const activity4: Activity = {
       code: `import { map } from 'rxjs/operators';`,
     },
     {
-      step: `Call the <code>pipe()</code> method on <code>this.button4$</code>.`,
-      code: `this.button4$.pipe()`,
+      step: `Call the <code>pipe()</code> method on <code>this.button$</code>.`,
+      code: `this.button$.pipe()`,
     },
     {
       step: `Add the <code>map()</code> to the <code>pipe()</code> method.`,
-      code: `this.button4$.pipe(map())`,
+      code: `this.button$.pipe(map())`,
     },
     {
       step: `Inside the <code>map()</code> function, add a method that returns the <code>multiplyAmount</code>.`,
@@ -148,7 +150,7 @@ const activity4: Activity = {
     },
     {
       step: `Take the amount returned by the map function and pass it in the <code>increaseCounter()</code> method.`,
-      code: `.subscribe((amount) => this.increaseCounter('button4', amount));`,
+      code: `.subscribe((amount) => this.increaseCounter('button', amount));`,
     },
   ],
 };
@@ -158,29 +160,29 @@ const activity5: Activity = {
   id: 'activity5',
   component: Activity5Component,
   isExercise: true,
-  title: '1: Skip the first number of clicks.',
+  title: '1: Skip a number of events.',
   description: [
     `The <code>skip</code> operator starts emitting after the specified amount.`,
   ],
-  solution: `this.button5$
+  solution: `this.button$
   .pipe(skip(this.skipAmount))
-  .subscribe(() => this.increaseCounter('button5'));`,
+  .subscribe(() => this.buttonCounter++);`,
   steps: [
     {
       step: `Import <code>skip</code> from <code>rxjs/operators</code>.`,
       code: `import { skip } from 'rxjs/operators';`,
     },
     {
-      step: `Call the <code>pipe()</code> method on <code>this.button5$</code>.`,
-      code: `this.button5$.pipe()`,
+      step: `Call the <code>pipe()</code> method on <code>this.button$</code>.`,
+      code: `this.button$.pipe()`,
     },
     {
       step: `Add the <code>skip()</code> to the <code>pipe()</code> method and pass in the <code>skipAmount</code> (set to 5).`,
-      code: `this.button5$.pipe(skip(this.skipAmount))`,
+      code: `this.button$.pipe(skip(this.skipAmount))`,
     },
     {
       step: `Chain the <code>subscribe()</code> method and increase the counter for this button`,
-      code: `.subscribe(() => this.increaseCounter('button5'));`,
+      code: `.subscribe(() => this.buttonCounter++);`,
     },
   ],
 };
@@ -189,21 +191,21 @@ const activity6: Activity = {
   id: 'activity6',
   component: Activity6Component,
   isExercise: true,
-  title: '2: Stop counting after a number of clicks',
+  title: '2: Stop after a number of events',
   description: [
     `The <code>takeUntil</code> operator limits the number of events that will be emitted.`,
     `In order to do this we will use a <code>Subject()</code>, something we will discuss later.`,
     `You can see it as an Observable that we can send values to by calling the <code>next()</code> method on it, with an optional parameter.`,
     `In this case we will use it to trigger when the stream should stop emitting.`,
   ],
-  solution: `const button6stop = new Subject();
-this.button6$
-  .pipe(takeUntil(button6stop))
+  solution: `const buttonStop = new Subject();
+this.button$
+  .pipe(takeUntil(buttonStop))
   .subscribe(() => {
-    if (this.result6 + 1 === this.takeUntilAmount) {
-      button6stop.next();
+    if (this.result + 1 === this.takeUntilAmount) {
+      buttonStop.next();
     }
-    this.increaseCounter('button6');
+    this.increaseCounter('button');
   });
 `,
   steps: [
@@ -212,20 +214,20 @@ this.button6$
       code: `import { takeUntil } from 'rxjs/operators';`,
     },
     {
-      step: `Create a new <code>Subject</code> and assign it to a constant named <code>button6stop</code>.`,
-      code: `const button6stop = new Subject();`,
+      step: `Create a new <code>Subject</code> and assign it to a constant named <code>buttonStop</code>.`,
+      code: `const buttonStop = new Subject();`,
     },
     {
-      step: `Call the <code>pipe()</code> method on <code>this.button6$</code>.`,
-      code: `this.button6$.pipe()`,
+      step: `Call the <code>pipe()</code> method on <code>this.button$</code>.`,
+      code: `this.button$.pipe()`,
     },
     {
       step: `Add the <code>takeUntil()</code> to the <code>pipe()</code> method.`,
-      code: `this.button6$.pipe(takeUntil())`,
+      code: `this.button$.pipe(takeUntil())`,
     },
     {
-      step: `Pass the subject we just created <code>button6stop</code> in the <code>takeUntil</code> method.`,
-      code: `this.button6$.pipe(takeUntil(button6stop))`,
+      step: `Pass the subject we just created <code>buttonStop</code> in the <code>takeUntil</code> method.`,
+      code: `this.button$.pipe(takeUntil(buttonStop))`,
     },
     {
       step: `Chain the <code>subscribe()</code> method on the <code>pipe()</code> method and create a function body.`,
@@ -234,24 +236,24 @@ this.button6$
     {
       step: `Add an if-statement to determine when to trigger the stop.`,
       code: `() => {
-  if (this.counters.button6 + 1 === this.takeUntilAmount) { }
+  if (this.counters.button + 1 === this.takeUntilAmount) { }
 }`,
     },
     {
       step: `Invoke the <code>next()</code> method on the <code>Subject</code> if we need to stop.`,
       code: `() => {
-  if (this.result6 + 1 === this.takeUntilAmount) {
-    button6stop.next();
+  if (this.result + 1 === this.takeUntilAmount) {
+    buttonStop.next();
   }
 }`,
     },
     {
       step: `Lastly, update the counter.`,
       code: `() => {
-  if (this.result6 + 1 === this.takeUntilAmount) {
-    button6stop.next();
+  if (this.result + 1 === this.takeUntilAmount) {
+    buttonStop.next();
   }
-  this.increaseCounter('button6');
+  this.increaseCounter('button');
 }`,
     },
   ],

@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import { fromEvent, Observable } from 'rxjs';
-import { switchMap, takeUntil, tap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { } from 'rxjs/operators';
 import { CanvasComponent } from '../../../ui/components/canvas/canvas.component';
 
 @Component({
@@ -27,20 +27,6 @@ export class Activity1Component implements AfterViewInit {
    *
    */
   solution() {
-    this.move$ = fromEvent(this.canvas.element, 'mousemove');
-    this.down$ = fromEvent(this.canvas.element, 'mousedown');
-    this.up$ = fromEvent(this.canvas.element, 'mouseup');
 
-    const paint$ = this.down$
-      .pipe(
-        switchMap(() => this.move$
-          .pipe(
-            tap(() => console.log('down')),
-            takeUntil(this.up$)
-          )
-        )
-      );
-
-    paint$.subscribe((event: MouseEvent) => this.canvas.paintCanvas(event));
   }
 }

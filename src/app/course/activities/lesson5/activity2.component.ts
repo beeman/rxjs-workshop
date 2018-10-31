@@ -1,9 +1,11 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { fromEvent, Observable } from 'rxjs';
+import { } from 'rxjs/operators';
 
 @Component({
   template: `    
     <input #input type="text" [class]="inputClass" [placeholder]="inputPlaceholder">
+    <app-result [result]="result"></app-result>
   `,
 })
 export class Activity2Component implements OnInit {
@@ -18,10 +20,9 @@ export class Activity2Component implements OnInit {
 
   private input$query: Observable<string>;
 
-
   private debounceDelay = 300;
 
-  public result2: any = {
+  public result: any = {
     value: '',
     query: '',
   };

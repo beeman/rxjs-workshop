@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { fromEvent, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { } from 'rxjs/operators';
 
 @Component({
   template: `
@@ -40,8 +40,6 @@ export class Activity4Component implements OnInit {
    * Solution for Activity
    */
   solution() {
-    this.button$
-      .pipe(map(() => this.multiplyAmount))
-      .subscribe((amount) => this.buttonCounter = this.buttonCounter + amount);
+
   }
 }

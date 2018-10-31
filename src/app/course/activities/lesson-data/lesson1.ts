@@ -146,7 +146,7 @@ const activity3: Activity = {
 const activity4: Activity = {
   id: 'activity4',
   component: Activity4Component,
-  title: 'Exercise 1: unsubscribing',
+  title: '4: unsubscribing',
   description: [
     `To prevent memory leaks, we should always consider unsubscribing from our Observables.`,
     `We can do this using the <code>ngOnDestroy</code> method, that Angular runs during the Component tear down.`,
@@ -159,10 +159,6 @@ const activity4: Activity = {
   steps: [
     {
       step: `In the ngOnDestroy method add call into the <code>unsubscribe()</code> method on <code>this.sub</code>`,
-      code: `this.sub.unsubscribe()`,
-    },
-    {
-      step: `Do the same for <code>this.sub</code>`,
       code: `this.sub.unsubscribe()`,
     },
   ],

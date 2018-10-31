@@ -36,9 +36,7 @@ export class Activity1Component implements OnInit {
    * Solution for Activity
    */
   solution() {
-    this.button.addEventListener('click', (event) => {
-      this.result = {x: event.clientX, y: event.clientY};
-    });
+
   }
 
 }

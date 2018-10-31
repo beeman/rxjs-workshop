@@ -37,10 +37,6 @@ export class Activity1Component implements OnInit {
    * Solution for Activity
    */
   solution() {
-    this.button$.subscribe(
-      () => {
-        this.buttonCounter++;
-      },
-    );
+    
   }
 }

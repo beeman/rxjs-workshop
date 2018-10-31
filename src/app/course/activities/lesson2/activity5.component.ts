@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { fromEvent, Observable } from 'rxjs';
-import { skip } from 'rxjs/operators';
+import { } from 'rxjs/operators';
 
 @Component({
   template: `
@@ -40,8 +40,6 @@ export class Activity5Component implements OnInit {
    * Solution for Activity
    */
   solution() {
-    this.button$
-      .pipe(skip(this.skipAmount))
-      .subscribe(() => this.buttonCounter++);
+
   }
 }
