@@ -4,9 +4,8 @@ import { } from 'rxjs/operators';
 
 @Component({
   template: `
-    <button #button class="btn btn-primary">
-      Clicked {{buttonCounter}} times
-    </button>
+    <button #button class="btn btn-primary">Click</button>
+    <app-result [result]="{ buttonCounter: buttonCounter }"></app-result>
   `,
 })
 export class Activity1Component implements OnInit {
@@ -37,6 +36,6 @@ export class Activity1Component implements OnInit {
    * Solution for Activity
    */
   solution() {
-    
+
   }
 }
