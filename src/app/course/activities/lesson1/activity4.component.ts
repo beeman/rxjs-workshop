@@ -42,7 +42,6 @@ export class Activity4Component implements OnDestroy, OnInit {
   }
 
   ngOnDestroy() {
-    this.sub.unsubscribe();
   }
 
   /**
