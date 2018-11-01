@@ -28,18 +28,18 @@ export class CanvasComponent implements OnInit {
 
   initCanvas() {
     this.element = this.canvas.nativeElement;
-    this.element.width = this.element.clientWidth;
-    this.element.height = this.element.clientHeight;
-
-    this.context = this.element.getContext('2d');
-    this.context.lineJoin = 'round';
-    this.context.lineCap = 'round';
+    setTimeout(() => {
+      this.element.width = this.element.clientWidth;
+      this.element.height = this.element.clientHeight;
+      this.context = this.element.getContext('2d');
+      this.context.lineJoin = 'round';
+      this.context.lineCap = 'round';
+      this.context.lineWidth = this.lineWidth;
+    }, 0);
   }
 
   public paintCanvas({layerX, layerY}: MouseEvent) {
     this.colorHue++;
-
-    this.context.lineWidth = this.lineWidth;
 
     this.context.strokeStyle = `hsl(${this.colorHue}, 100%, 60%)`;
 
