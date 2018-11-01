@@ -159,7 +159,7 @@ const activity5: Activity = {
   id: 'activity5',
   component: Activity5Component,
   isExercise: true,
-  title: '1: Skip a number of events.',
+  title: '5: Skip a number of events.',
   description: [
     `The <code>skip</code> operator starts emitting after the specified amount.`,
   ],
@@ -190,7 +190,7 @@ const activity6: Activity = {
   id: 'activity6',
   component: Activity6Component,
   isExercise: true,
-  title: '2: Stop after a number of events',
+  title: '6: Stop after a number of events',
   description: [
     `The <code>takeUntil</code> operator limits the number of events that will be emitted.`,
     `In order to do this we will use a <code>Subject()</code>, something we will discuss later.`,

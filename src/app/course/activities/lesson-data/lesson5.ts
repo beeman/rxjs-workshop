@@ -1,4 +1,5 @@
 import { Activity, Lesson } from '../../../types';
+
 import { Activity1Component } from '../lesson5/activity1.component';
 import { Activity2Component } from '../lesson5/activity2.component';
 import { Activity3Component } from '../lesson5/activity3.component';
@@ -171,14 +172,6 @@ this.input$query.subscribe(
     this.result.error = null;
   });`,
   steps: [
-    {
-      step: `
-        For this activity, please make a fork of 
-        <a target="_blank" href="https://stackblitz.com/edit/rxjs-workshop-fixed?file=src%2Fapp%2Fdemo%2Fcomponents%2Fdemo5%2Fdemo5.component.ts">
-          https://stackblitz.com/edit/rxjs-workshop-fixed?file=src%2Fapp%2Fdemo%2Fcomponents%2Fdemo5%2Fdemo5.component.ts
-        </a>.
-      `,
-    },
     {
       step: `Implement <code>input$query</code> Observable like in the previous activity. This time we don't care about storing the raw <code>value</code>.`,
       code: `this.input$query = this.input$.pipe(
