@@ -154,7 +154,6 @@ const activity4: Activity = {
   ],
   solution: `ngOnDestroy() {
   this.sub.unsubscribe();
-  this.sub.unsubscribe();
 }`,
   steps: [
     {
