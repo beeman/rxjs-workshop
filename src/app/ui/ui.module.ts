@@ -12,6 +12,7 @@ import 'prismjs/components/prism-markup';
 import { UiFormModule } from './form/ui-form.module';
 
 import { ActivityComponent } from './components/activity/activity.component';
+import { ActivitySelectorComponent } from './components/activity-selector/activity-selector.component';
 import { ButtonComponent } from './components/button/button.component';
 import { CardComponent } from './components/card/card.component';
 import { CodeComponent } from './components/code/code.component';
@@ -33,6 +34,7 @@ import { CanvasComponent } from './components/canvas/canvas.component';
   ],
   declarations: [
     ActivityComponent,
+    ActivitySelectorComponent,
     ButtonComponent,
     CardComponent,
     CanvasComponent,
@@ -48,6 +50,7 @@ import { CanvasComponent } from './components/canvas/canvas.component';
   exports: [
     UiFormModule,
     ActivityComponent,
+    ActivitySelectorComponent,
     ButtonComponent,
     CanvasComponent,
     CardComponent,
