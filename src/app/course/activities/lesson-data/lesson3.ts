@@ -1,4 +1,5 @@
 import { Activity, Lesson } from '../../../types';
+
 import { Activity1Component } from '../lesson3/activity1.component';
 
 const introduction: Activity = {

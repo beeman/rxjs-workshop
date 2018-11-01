@@ -6,20 +6,10 @@ import { Activity, Lesson } from '../../../types';
   template: `
     <div class="card mb-3">
       <div class="card-header">
-        <h4 class="my-3">{{ lesson.title }}</h4>
+        <h4 class="my-3">Lesson {{ lesson.title }}</h4>
       </div>
       <div class="card-block my-3">
-        <div class="btn btn-group">
-          <ng-container *ngFor="let la of lesson.activities; let i = index">
-            <a class="btn btn-sm"
-               [class.btn-info]="!la.isExercise && la.id !== activity.id"
-               [class.btn-primary]="la.isExercise && la.id !== activity.id"
-               [class.btn-success]="la.id === activity.id"
-               [routerLink]="['../', la.id]">
-              {{ i }}
-            </a>
-          </ng-container>
-        </div>
+        <app-activity-selector [activity]="activity" [activities]="lesson.activities"></app-activity-selector>
       </div>
 
       <div class="card-header">
@@ -66,6 +56,9 @@ import { Activity, Lesson } from '../../../types';
           <ng-content></ng-content>
         </div>
       </ng-container>
+      <div class="card-block my-3">
+        <app-activity-selector [activity]="activity" [activities]="lesson.activities"></app-activity-selector>
+      </div>
     </div>
   `,
 })

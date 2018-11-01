@@ -1,9 +1,11 @@
 import { Activity, Lesson } from '../../../types';
+
 import { Activity1Component } from '../lesson6/activity1.component';
 import { Activity2Component } from '../lesson6/activity2.component';
 import { Activity3Component } from '../lesson6/activity3.component';
 import { Activity4Component } from '../lesson6/activity4.component';
 import { Activity5Component } from '../lesson6/activity5.component';
+import { Observable } from 'rxjs';
 
 export const introduction: Activity = {
   id: 'overview',
@@ -139,10 +141,10 @@ export const activity4: Activity = {
   observer.complete('Done Emitting Values');
 });
 
-myObservable.subscribe(
-  (result) => this.result = result,
-  () => console.log('Activity 4 completed'),
-);`,
+myObservable.subscribe({
+  next: (result) => this.result.push(result),
+  complete: () => console.log('Activity 4 completed')
+});`,
   steps: [
     {
       step: `Create a local variable <code>myObservable</code> and assign it to <code>Observable.create()</code>.`,
@@ -166,11 +168,10 @@ myObservable.subscribe(
     },
     {
       step: `Create a callback method for <code>next</code> and <code>complete</code>`,
-      code: `myObservable
-  .subscribe({
-    next: (result) => this.result = result,
-    complete: () => console.log('activity 4 completed'),
-  });`
+      code: `myObservable.subscribe({
+  next: (result) => this.result.push(result),
+  complete: () => console.log('Activity 4 completed')
+});`
     },
     {
       step: 'Run the example and observe the result. We see that the complete did not get logged in our console.',
@@ -188,7 +189,7 @@ myObservable.subscribe(
 export const activity5: Activity = {
   id: 'activity5',
   component: Activity5Component,
-  title: 'Excercise 1: empty, interval, range',
+  title: '5: empty, interval, range',
   isExercise: true,
   description: [
     `In this exercise we look at some more 'creation' observables.`

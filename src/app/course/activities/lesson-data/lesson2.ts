@@ -125,8 +125,7 @@ const activity4: Activity = {
   ],
   solution: `this.button$
   .pipe(map(() => this.multiplyAmount))
-  .subscribe((amount) => this.increaseCounter('button', amount));
-`,
+  .subscribe((amount) => this.buttonCounter = this.buttonCounter + amount);`,
   steps: [
     {
       step: `Import <code>map</code> from <code>rxjs/operators</code>.`,
@@ -149,8 +148,8 @@ const activity4: Activity = {
       code: `.subscribe();`,
     },
     {
-      step: `Take the amount returned by the map function and pass it in the <code>increaseCounter()</code> method.`,
-      code: `.subscribe((amount) => this.increaseCounter('button', amount));`,
+      step: `Take the amount returned by the map function and add it to the current value of <code>this.buttonCounter</code>.`,
+      code: `.subscribe((amount) => this.buttonCounter = this.buttonCounter + amount);`,
     },
   ],
 };
@@ -160,7 +159,7 @@ const activity5: Activity = {
   id: 'activity5',
   component: Activity5Component,
   isExercise: true,
-  title: '1: Skip a number of events.',
+  title: '5: Skip a number of events.',
   description: [
     `The <code>skip</code> operator starts emitting after the specified amount.`,
   ],
@@ -191,7 +190,7 @@ const activity6: Activity = {
   id: 'activity6',
   component: Activity6Component,
   isExercise: true,
-  title: '2: Stop after a number of events',
+  title: '6: Stop after a number of events',
   description: [
     `The <code>takeUntil</code> operator limits the number of events that will be emitted.`,
     `In order to do this we will use a <code>Subject()</code>, something we will discuss later.`,
@@ -202,12 +201,11 @@ const activity6: Activity = {
 this.button$
   .pipe(takeUntil(buttonStop))
   .subscribe(() => {
-    if (this.result + 1 === this.takeUntilAmount) {
+    if (this.buttonCounter + 1 === this.takeUntilAmount) {
       buttonStop.next();
     }
-    this.increaseCounter('button');
-  });
-`,
+    this.buttonCounter++;
+  });`,
   steps: [
     {
       step: `Import <code>takeUntil</code> from <code>rxjs/operators</code>.`,
@@ -236,7 +234,7 @@ this.button$
     {
       step: `Add an if-statement to determine when to trigger the stop.`,
       code: `() => {
-  if (this.counters.button + 1 === this.takeUntilAmount) { }
+  if (this.buttonCounter + 1 === this.takeUntilAmount) { }
 }`,
     },
     {
@@ -253,7 +251,7 @@ this.button$
   if (this.result + 1 === this.takeUntilAmount) {
     buttonStop.next();
   }
-  this.increaseCounter('button');
+  this.buttonCounter++;
 }`,
     },
   ],

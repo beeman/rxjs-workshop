@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
+import { } from 'rxjs';
 
 @Component({
   template: `
     <app-button label="Trigger from" (click)="solution()"></app-button>
-
-    <pre>{{ result }}</pre>
+    <app-result [result]="{ result: result }"></app-result>
   `,
 })
 export class Activity2Component {

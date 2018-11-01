@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { fromEvent, Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
 import { DataService } from '../../services/data.service';
+import { tap } from 'rxjs/operators';
 
 @Component({
   template: `
@@ -9,8 +9,9 @@ import { DataService } from '../../services/data.service';
 
     <div *ngIf="result.error as error"><pre>{{error | json}}</pre></div>
 
-    <div *ngIf="result.result as result; else noresult">
-      <div *ngFor="let item of result" class="my-3">
+    <div *ngIf="result.items; else noresult">
+      <div class="my-3">Results for <strong>{{result.query}}</strong> ({{result.items.length}})</div>
+      <div *ngFor="let item of result.items" class="my-3">
         <app-country-card [country]="item"></app-country-card>
       </div>
     </div>
