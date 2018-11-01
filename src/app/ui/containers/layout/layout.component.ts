@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LayoutComponent implements OnInit {
   public logo = 'assets/logo.png';
-  public title = 'RxJS: from trainee to boss';
+  public title = 'RxJS: from zero to hero';
   public items = [
     // { label: 'Lessons', url: '/lessons'},
   ];
