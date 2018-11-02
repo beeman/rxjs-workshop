@@ -25,7 +25,6 @@
     "@angular/router": "^6.1.0",
     "@ngx-formly/bootstrap": "^4.7.2",
     "@ngx-formly/core": "^4.7.2",
-    "@sgbj/angular-prism": "^0.2.1",
     "@types/prismjs": "^1.9.0",
     "bootswatch": "^4.1.3",
     "core-js": "^2.5.4",

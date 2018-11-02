@@ -5,9 +5,9 @@ import 'prismjs/components/prism-typescript';
 @Component({
   selector: 'app-code',
   template: `
-    <prism [language]="language">
+    <app-prism [language]="language">
       <ng-content></ng-content>
-    </prism>
+    </app-prism>
   `,
 })
 export class CodeComponent {
