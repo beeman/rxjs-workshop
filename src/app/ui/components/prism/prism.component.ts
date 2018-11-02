@@ -5,11 +5,6 @@
 
 import { AfterContentInit, AfterViewInit, Component, ElementRef, Input, OnChanges, OnDestroy, ViewChild } from '@angular/core';
 
-import 'prismjs/prism';
-import 'prismjs/components/prism-typescript';
-import 'prismjs/components/prism-scss';
-import 'prismjs/components/prism-markup';
-
 declare var Prism: any;
 
 @Component({

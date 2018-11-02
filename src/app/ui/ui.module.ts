@@ -3,6 +3,11 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { UiFormModule } from './form/ui-form.module';
+import 'prismjs/prism';
+import 'prismjs/components/prism-typescript';
+import 'prismjs/components/prism-scss';
+import 'prismjs/components/prism-markup';
+
 
 import { ActivityComponent } from './components/activity/activity.component';
 import { ActivitySelectorComponent } from './components/activity-selector/activity-selector.component';
